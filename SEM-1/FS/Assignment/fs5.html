@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .container .title {
+            font-size: 30px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(50% - 10px);
+        }
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .user-details .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+        .user-details .input-box input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .user-details .input-box input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+        form .button {
+            height: 45px;
+            margin: 35px 0;
+        }
+        form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: #007bff;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        form .button input:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        form .button input:active {
+            transform: translateY(0);
+        }
+        @media(max-width: 584px) {
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+            form .user-details .input-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Employee Registration</div>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="tel" placeholder="Enter your phone number" required>
+                    </div>
+                    <div                    <div class="input-box">
+                      <span class="details">Password</span>
+                      <input type="password" placeholder="Enter your password" required>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Confirm Password</span>
+                      <input type="password" placeholder="Confirm your password" required>
+                  </div>
+              </div>
+              <div class="button">
+                  <input type="submit" value="Register">
+              </div>
+          </form>
+      </div>
+  </div>
+</body>
+</html>

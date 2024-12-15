@@ -1,0 +1,110 @@
+<!--Create a simple Arithmetic Operator utility (like a calculator) using JavaScript.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator with Callbacks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .calculator {
+            background: #f5f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #007bff;
+        }
+        input[type="number"] {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            
+            background-color: #05ff33;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+        @media (max-width: 500px) {
+            .calculator {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>Simple Calculator</h2>
+<div class="calculator">
+    <input type="number" id="num1" placeholder="Enter first number" required>
+    <input type="number" id="num2" placeholder="Enter second number" required>
+    
+    <input type="button" value="Add" onclick="performOperation(add)">
+    <input type="button" value="Subtract" onclick="performOperation(subtract)">
+    <input type="button" value="Multiply" onclick="performOperation(multiply)">
+    <input type="button" value="Divide" onclick="performOperation(divide)">
+    
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function performOperation(callback) {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        const result = callback(num1, num2);
+        document.getElementById('result').innerText = `Result: ${result}`;
+    }
+
+    function add(a, b) {
+        return a + b;
+    }
+
+    function subtract(a, b) {
+        return a - b;
+    }
+
+    function multiply(a, b) {
+        return a * b;
+    }
+
+    function divide(a, b) {
+        if (b === 0) {
+            return "Error: Division by zero";
+        }
+        return a / b;
+    }
+</script>
+
+</body>
+</html>

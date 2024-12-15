@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Capital</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+                box-shadow: blue ;
+            width: 70vh;
+            display: inline-block;
+            border: 2px solid #333;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            margin-top: 65px;
+            border-radius: 25px;
+            background-color: #e4edf8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #00af3d;
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            text-align: center;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #countrySelect {
+            height: 40px;
+            width: 150px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+
+        #countrySelect:focus {
+            outline: none;
+            box-shadow: 0 0 5px #00af3d;
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        #capital {
+            color: #fb1515;
+        }
+
+        .select-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        function showCapital() {
+            var country = document.getElementById("countrySelect").value;
+            var capital = "";
+
+            switch (country) {
+                case "India":
+                    capital = " : New Delhi";
+                    break;
+                case "Japan":
+                    capital = " : Tokyo";
+                    break;
+                case "China":
+                    capital = " : Beijing";
+                    break;
+                case "Nepal":
+                    capital = " : Kathmandu";
+                    break;
+                case "South Korea":
+                    capital = " : Seoul";
+                    break;
+                case "United States":
+                    capital = " : Washington, D.C.";
+                    break;
+                case "Canada":
+                    capital = " : Ottawa";
+                    break;
+                case "Australia":
+                    capital = " : Canberra";
+                    break;
+                case "Germany":
+                    capital = " : Berlin";
+                    break;
+                case "France":
+                    capital = " : Paris";
+                    break;
+                case "Italy":
+                    capital = " : Rome";
+                    break;
+                case "Spain":
+                    capital = " : Madrid";
+                    break;
+                case "Brazil":
+                    capital = " : Brasília";
+                    break;
+                case "Russia":
+                    capital = " : Moscow";
+                    break;
+                default:
+                    capital = "";
+                    break;
+            }
+            document.getElementById("capital").innerHTML = capital;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <h1>Display Capital</h1>
+            <h4 class="select-label">Select Country to See the Capital !</h4>
+            <select id="countrySelect" onchange="showCapital()">
+                <option value="" disabled selected>Choose Country</option>
+                <option value="India">India</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Nepal">Nepal</option>
+                <option value="South Korea">South Korea</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+                <option value="Spain">Spain</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Russia">Russia</option>
+            </select>
+
+            <p>Capital<span id="capital"></span></p>
+        </div>
+    </center>
+</body>
+</html>

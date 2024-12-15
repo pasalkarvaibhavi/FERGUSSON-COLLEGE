@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstration of CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .heading {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            border: 1px solid black;
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover; /* Ensures images maintain aspect ratio */
+        }
+
+        th {
+            padding: 20px;
+            color: blue;
+            font-size: larger;
+            background-color: #e7f3fe;
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: rgb(70, 240, 84);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem; /* Ensure button text is readable */
+        }
+
+        button:hover {
+            background-color: rgb(50, 200, 64);
+        }
+
+        .details {
+            display: none; /* Hide details by default */
+            margin-top: 10px;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .heading {
+                font-size: 2.5rem;
+            }
+
+            table {
+                width: 95%;
+            }
+
+            th, td {
+                padding: 15px;
+                font-size: smaller;
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: smaller;
+                display: none;
+            }
+
+            img {
+                width: 70px;
+                height: 70px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: smaller;
+            }
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+
+            button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            /* Stack table rows on small screens */
+            table, tbody, tr, td {
+                display: block;
+                width: 100%;
+            }
+
+            tr {
+                margin-bottom: 20px; /* Space between rows */
+                border: 1px solid #ddd; /* Add border for clarity */
+                border-radius: 5px; /* Rounded corners */
+                overflow: hidden; /* Prevent overflow */
+            }
+
+            td {
+                text-align: left; /* Align text to the left */
+                padding: 10px; /* Padding for cells */
+            }
+
+            td img {
+                float: left; /* Align image to the left */
+                margin-right: 10px; /* Space between image and text */
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="heading">Our Product List</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Book Price</th>
+                <th>Click Here For Details</th </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <img src="Z:/FS/CSS/SRC/5.jpg" alt="Angry River Book Cover">
+                    <h5>Angry River</h5>
+                </td>
+                <td>Rs.174.55</td>
+                <td>
+                    <button onclick="showInfo('p1')">Know More</button>
+                    <div id="p1" class="details">
+                        <p>Angry River is a 1972 children's novel by Indian author Ruskin Bond illustrated by Trevor Stubley.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="Z:/FS/CSS/SRC/3.jpg" alt="The Wings of Fire Book Cover">
+                    <h5>The Wings of Fire</h5>
+                </td>
+                <td>Rs.840</td>
+                <td>
+                    <button onclick="showInfo('p2')">Know More</button>
+                    <div id="p2" class="details">
+                        <p>Wings of Fire (1999), is the autobiography of the Missile Man of India and the former President of India, Dr. A. P. J. Abdul Kalam. It was written by him and Arun Tiwari.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="Z:/FS/CSS/SRC/4.jpg" alt="Malgudi Days Book Cover">
+                    <h5>Malgudi Days</h5>
+                </td>
+                <td>Rs.900</td>
+                <td>
+                    <button onclick="showInfo('p3')">Know More</button>
+                    <div id="p3" class="details">
+                        <p>Malgudi Days is a collection of short stories by R. K. Narayan published in 1943 by Indian Thought Publications. The book includes 32 stories, all set in the fictional town of Malgudi, located in South India.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="Z:/FS/CSS/SRC/6.jpg" alt="Kosala Book Cover">
+                    <h5>Kosala</h5>
+                </td>
+                <td>Rs.425</td>
+                <td>
+                    <button onclick="showInfo('p4')">Know More</button>
+                    <div id="p4" class="details">
+                        <p>Kosala, sometimes spelled Kosla, is a Marathi novel by Indian writer Bhalchandra Nemade, published in 1963. Kosala is considered to be the first existentialist novel in Marathi literature.</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function showInfo(detailsId) {
+            var information = document.getElementById(detailsId);
+            if (information.style.display === "none" || information.style.display === "") {
+                information.style.display = "block";
+            } else {
+                information.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!--4. Create a web page using JavaScript which will contain a Registration form.
+
+Also verify all the records are filled.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s;
+            box-shadow: 2px 2px 5px 3px rgb(21, 5, 247);
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #100333;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<div class="container">
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Username" required>
+        <div class="error" id="usernameError"></div>
+        
+        <input type="email" id="email" placeholder="Email" required>
+        <div class="error" id="emailError"></div>
+        
+        <input type="password" id="password" placeholder="Password" required>
+        <div class="error" id="passwordError"></div>
+        
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <div class="error" id="confirmPasswordError"></div>
+        
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        let isValid = true;
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        document.getElementById('usernameError').innerText = '';
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('passwordError').innerText = '';
+        document.getElementById('confirmPasswordError').innerText = '';
+
+        if (username === '') {
+            document.getElementById('usernameError').innerText = 'Username is required.';
+            isValid = false;
+        }
+        if (email === '') {
+            document.getElementById('emailError').innerText = 'Email is required.';
+            isValid = false;
+        }
+        if (password === '') {
+            document.getElementById('passwordError').innerText = 'Password is required.';
+            isValid = false;
+        }
+        if (confirmPassword === '') {
+            document.getElementById('confirmPasswordError'). innerText = 'Please confirm your password.';
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
+            isValid = false;
+        }
+
+        return isValid;
+    }
+</script>
+
+</body>
+</html>
