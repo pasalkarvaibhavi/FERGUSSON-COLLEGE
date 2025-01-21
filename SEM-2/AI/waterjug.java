@@ -1,15 +1,15 @@
 import java.util.*;
 
-public class waterjug{
+public class WaterJug {
 
     static class State {
-        int x, y;
-        List<String> path;
+        int jug1, jug2;
+        String path;
 
-        State(int x, int y, List<String> path) {
-            this.x = x;
-            this.y = y;
-            this.path = new ArrayList<>(path);
+        State(int jug1, int jug2, String path) {
+            this.jug1 = jug1;
+            this.jug2 = jug2;
+            this.path = path;
         }
 
         @Override
@@ -18,72 +18,52 @@ public class waterjug{
             if (obj == null || getClass() != obj.getClass())
                 return false;
             State state = (State) obj;
-            return x == state.x && y == state.y;
+            return jug1 == state.jug1 && jug2 == state.jug2;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(x, y);
+            return Objects.hash(jug1, jug2);
         }
     }
 
     public static boolean canMeasureWater(int X, int Y, int Z) {
-        if (Z > X + Y) return false;
-        if (Z % gcd(X, Y) != 0) return false;
+        if (Z > X + Y || Z % gcd(X, Y) != 0) return false;
 
         Queue<State> queue = new LinkedList<>();
         Set<State> visited = new HashSet<>();
-
-
-        queue.add(new State(0, 0, List.of("Start: (0, 0)")));
+        queue.add(new State(0, 0, "Start: (0, 0)"));
 
         while (!queue.isEmpty()) {
             State current = queue.poll();
 
-
-            if (current.x == Z || current.y == Z || current.x + current.y == Z) {
+            if (current.jug1 == Z || current.jug2 == Z || current.jug1 + current.jug2 == Z) {
                 System.out.println("Steps to achieve " + Z + " liters:");
-                for (String step : current.path) {
+                String[] steps = current.path.split(" -> ");
+                for (String step : steps) {
                     System.out.println(step);
                 }
                 return true;
             }
 
-
-            if (visited.contains(current)) {
-                continue;
-            }
-
+            if (visited.contains(current)) continue;
             visited.add(current);
 
-
-            List<State> nextStates = Arrays.asList(
-                    new State(X, current.y, appendPath(current.path, "Fill Jug X: (" + X + ", " + current.y + ")")),
-                    new State(current.x, Y, appendPath(current.path, "Fill Jug Y: (" + current.x + ", " + Y + ")")),
-                    new State(0, current.y, appendPath(current.path, "Empty Jug X: (0, " + current.y + ")")),
-                    new State(current.x, 0, appendPath(current.path, "Empty Jug Y: (" + current.x + ", 0)")),
-                    new State(current.x - Math.min(current.x, Y - current.y),
-                            current.y + Math.min(current.x, Y - current.y),
-                            appendPath(current.path, "Pour Jug X to Jug Y: (" +
-                                    (current.x - Math.min(current.x, Y - current.y)) + ", " +
-                                    (current.y + Math.min(current.x, Y - current.y)) + ")")),
-                    new State(current.x + Math.min(current.y, X - current.x),
-                            current.y - Math.min(current.y, X - current.x),
-                            appendPath(current.path, "Pour Jug Y to Jug X: (" +
-                                    (current.x + Math.min(current.y, X - current.x)) + ", " +
-                                    (current.y - Math.min(current.y, X - current.x)) + ")"))
-            );
-
-            queue.addAll(nextStates);
+            queue.addAll(Arrays.asList(
+                new State(X, current.jug2, current.path + " -> Fill Jug 1"),
+                new State(current.jug1, Y, current.path + " -> Fill Jug 2"),
+                new State(0, current.jug2, current.path + " -> Empty Jug 1"),
+                new State(current.jug1, 0, current.path + " -> Empty Jug 2"),
+                new State(current.jug1 - Math.min(current.jug1, Y - current.jug2),
+                          current.jug2 + Math.min(current.jug1, Y - current.jug2),
+                          current.path + " -> Pour Jug 1 to Jug 2"),
+                new State(current.jug1 + Math.min(current.jug2, X - current.jug1),
+                          current.jug2 - Math.min(current.jug2, X - current.jug1),
+                          current.path + " -> Pour Jug 2 to Jug 1")
+            ));
         }
 
         return false;
-    }
-
-    private static List<String> appendPath(List<String> path, String action) {
-        List<String> newPath = new ArrayList<>(path);
-        newPath.add(action);
-        return newPath;
     }
 
     private static int gcd(int a, int b) {
@@ -93,16 +73,12 @@ public class waterjug{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        
-        System.out.println("Enter the capacity of Jug X:");
+        System.out.println("Enter Jug 1 capacity:");
         int X = scanner.nextInt();
-
-        System.out.println("Enter the capacity of Jug Y:");
+        System.out.println("Enter Jug 2 capacity:");
         int Y = scanner.nextInt();
-
-        System.out.println("Enter the target amount (Z):");
+        System.out.println("Enter target amount (Z):");
         int Z = scanner.nextInt();
-
 
         if (!canMeasureWater(X, Y, Z)) {
             System.out.println("It is not possible to measure " + Z + " liters.");
@@ -111,3 +87,5 @@ public class waterjug{
         scanner.close();
     }
 }
+
+
