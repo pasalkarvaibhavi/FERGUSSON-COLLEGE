@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Array</title>
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      min-height: 110vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e5e5e5;
+    }
+
+    .container {
+      background: #ffffff;
+      color: #333333;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #555555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 2px solid #8f94fb;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #4e54c8;
+      box-shadow: 0 0 8px rgba(78, 84, 200, 0.5);
+    }
+
+    button {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #8f94fb, #4e54c8);
+      box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #4e54c8;
+    }
+
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    function checkInput() {
+      const input = document.getElementById("input").value;
+      let result;
+      try {
+        const parsedInput = JSON.parse(input);
+        if (Array.isArray(parsedInput)) {
+          result = "The input is an array.";
+        } else {
+          result = "The input is NOT an array.";
+        }
+      } catch {
+        result = "Invalid input! Please enter valid input.";
+      }
+      document.getElementById("result").textContent = result;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Check if Input is an Array</h1>
+    <p>Enter an array in proper format (e.g., [1, 2, 3]):</p>
+    
+    <input type="text" id="input" placeholder="Enter your input">
+    <button onclick="checkInput()">Check</button>
+    
+    <p id="result"></p>
+  </div>
+</body>
+</html>

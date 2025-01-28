@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swap Case</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e4e4e4;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 9px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 90%;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #040535;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #060a3a;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333333;
+    }
+  </style>
+  <script>
+    function swapCase() {
+      const input = document.getElementById("inputString").value;
+      let swapped = '';
+
+      for (let i = 0; i < input.length; i++) {
+        const char = input[i];
+        
+       
+        if (char === char.toUpperCase()) {
+          swapped += char.toLowerCase();
+        } else {
+          swapped += char.toUpperCase();
+        }
+      }
+
+      document.getElementById("result").textContent = swapped;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Swap Case</h1>
+    <p>Enter a string to swap the case of each character:</p>
+    <input type="text" id="inputString" placeholder="Enter your string">
+    <button onclick="swapCase()">Swap Case</button>
+    <p id="result"></p>
+  </div>
+</body>
+</html>
