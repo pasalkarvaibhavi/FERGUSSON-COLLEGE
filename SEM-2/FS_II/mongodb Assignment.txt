@@ -1,0 +1,98 @@
+//Q.2
+
+use restaurantDB;
+
+db.createCollection("restaurants");
+
+db.restaurants.insertMany([
+    {
+        "name": "Spice Garden",
+        "address": {
+            "city": "Pune",
+            "building": "123",
+            "street": "MG Road",
+            "pin": "411001"
+        },
+        "cuisines": ["Indian", "Chinese"],
+        "grades": [
+            {"date": "2024-01-01", "score": 85, "grade": "B"},
+            {"date": "2023-12-10", "score": 92, "grade": "A"}
+        ]
+    },
+    {
+        "name": "Flavors of India",
+        "address": {
+            "city": "Pune",
+            "building": "456",
+            "street": "Camp Road",
+            "pin": "411002"
+        },
+        "cuisines": ["North Indian", "South Indian"],
+        "grades": [
+            {"date": "2024-01-15", "score": 88, "grade": "B"},
+            {"date": "2023-11-20", "score": 95, "grade": "A"}
+        ]
+    },
+    {
+        "name": "Biryani House",
+        "address": {
+            "city": "Pune",
+            "building": "789",
+            "street": "FC Road",
+            "pin": "411003"
+        },
+        "cuisines": ["Biryani", "Mughlai"],
+        "grades": [
+            {"date": "2024-02-10", "score": 78, "grade": "B"},
+            {"date": "2023-10-05", "score": 82, "grade": "B"}
+        ]
+    },
+    {
+        "name": "The Pasta Hub",
+        "address": {
+            "city": "Pune",
+            "building": "101",
+            "street": "Camp Street",
+            "pin": "411004"
+        },
+        "cuisines": ["Italian"],
+        "grades": [
+            {"date": "2024-01-20", "score": 93, "grade": "A"},
+            {"date": "2023-09-15", "score": 89, "grade": "B"}
+        ]
+    },
+    {
+        "name": "Burger Point",
+        "address": {
+            "city": "Pune",
+            "building": "222",
+            "street": "Deccan",
+            "pin": "411005"
+        },
+        "cuisines": ["Fast Food"],
+        "grades": [
+            {"date": "2024-02-05", "score": 80, "grade": "B"},
+            {"date": "2023-08-10", "score": 85, "grade": "B"}
+        ]
+    }
+]);
+
+
+//1)
+
+db.restaurants.find().limit(5);
+
+//2)
+
+db.restaurants.find().pretty();
+
+//3)
+
+db.restaurants.find({"address.street": /Camp/i});
+
+//4)
+
+db.restaurants.find({"grades.score": { $gt: 90 }});
+
+
+
