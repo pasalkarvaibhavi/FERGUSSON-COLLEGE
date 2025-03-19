@@ -9,3 +9,14 @@ button{
   border-radius: 5px;
   padding:10px;
 }
+
+
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
