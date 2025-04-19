@@ -1,0 +1,22 @@
+h1{
+  color:rgb(60, 242, 63);
+}
+
+button{
+  color:rgb(255, 20, 20);
+  font-size: 15px;
+  background-color: rgb(255, 255, 244);
+  border-radius: 5px;
+  padding:10px;
+}
+
+
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}

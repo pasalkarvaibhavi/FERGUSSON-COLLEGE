@@ -1,0 +1,64 @@
+
+
+1. C# Language Basics 
+Write a C program to read a string from the user and create a new string from this string by shuffling the positions of the first and last characters. 
+Write a C program to nead "n" digit integer (for es. 123, 1234, 12345 etc) and print the sum of all digits. 
+Write a program to check whether the number is Palindrome or not (Using Recursion and without using Recursion). 
+Write a C program that read number from the user and calculate square root. Handle the exception if number is negative. 
+
+2. Delegates & Exceptional Handling (Practice programs-Optional) 
+Implement 2 tier exception handling. 
+Create class library MyOperations having following functiona 
+Write a MyCustomException class which has Error code and message. 
+MyOperations Class library has functions which captares exceptions like 
+DivideByZeroException and IndexOutOfRangeException exception. Every time an exception is caught, instance of MyCustomExurption is created with user defined ems codes and error messages. 
+Write console-based application to invoke MyOperations class functionality. In case of exceptions, print custom exception details with Error code and Error description. 
+Write a program to demonstrate College fest event handling. 
+Write a form-based application accepting number of people visiting fest 
+Implement college as event publisher publishing CollegeFest as event 
+Decorators and canerers are interests in handing this event. 
+Catering charges per plate are Rs200. 
+Basic decoration expenses are basic Rs 10000 plus 10m per student. 
+Display tutal catering and dococation bill as event response. 
+
+3. Object Oriented Programming: Inheritance, Abstract classes and interfaces 
+a console-frased program 
+To implement OOPS concept like virtual, override and new concept. 
+The class may have public, provate and static construское. 
+Implementing any interface is mandatory 
+2 
+Note: Implement any one of the programs such as Employee class. Person Class etc given in teaching session and shared on group 
+
+Note: Implement any one of the programs such as Employee class, Person Class etc given in teaching session and shared on group 
+
+4. Windows Form Application Development ((Use Appropriate controls and event handlers) 
+a. Create a Form for the T-Shirt Ordering Calculator: 
+Allow user to enter in a number of T-shirts to buy 
+Allow user to choose Small (Rs. 125), Medium (Rs. 175) or Large (Rs. 250) 
+Allow user to enter in a promocode of "TRUEBLUE" for a 10% discount 
+Apply 9% GST on final order price 
+Display Final Price 
+b. Implement a Simple Calculator 
+a. Create an UI for Railway Reservation (Booking) Form 
+b. Create UI for Hospital OPD Registration Form 
+
+5. File Handling Concepts 
+a. Write a program to read and write and append the text file contents. 
+b. Write a program to read and write contents of binary file. 
+c. Write program to demonstrate usage of DirectoryInfo and FileInfo classes to get the file and directory information from the given path. 
+
+6. XML 
+Write a program to 
+Read all xml nodes 
+Read single xml node 
+Insert new XML node 
+Update the xml file with the newly inserted node. 
+
+7. Working with Databases (CRUD operations) 
+Write a program to perform Create, Update, and Delete operations on Microsoft SQL Server Database using ADO.Net classes, 
+
+8. LINQ 
+a. Write a program to demonstrate LINQ to array. 
+b. Write a program to demonstrate LINQ to XML.. 
+c. Write a program to demonstrate LINQ to SQL.. 
+d. Write a program to demonstrate LINQ to collection. 

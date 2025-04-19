@@ -1,0 +1,135 @@
+<!--Create a form to accept the Employee details and Basic Salary. Based on the salary calculate the following using JavaScript code: DA, HRA, PF, TAX, Gross pay, Deduction and Net pay. Output should display the Salary Slip of an Employee.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Slip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="button"] {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="button"]:hover {
+            background-color: #218838;
+        }
+        .salary-slip {
+            margin-top: 20px;
+            border: 1px solid #007bff;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .salary-slip h3 {
+            text-align: center;
+            color: #007bff;
+        }
+        .salary-slip p {
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Employee Salary Form</h2>
+<form id="salaryForm">
+    <label for="name">Employee Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" required>
+
+    <label for="basicSalary">Basic Salary:</label>
+    <input type="number" id="basicSalary" required>
+
+    <input type="button" value="Calculate Salary" onclick="calculateSalary()">
+</form>
+
+<div class="salary-slip" id="salarySlip" style="display:none;">
+    <h3>Salary Slip</h3>
+    <p id="slipContent"></p>
+</div>
+
+<script>
+    function calculateSalary() {
+        const name = document.getElementById('name').value;
+        const designation = document.getElementById('designation').value;
+        const basicSalary = parseFloat(document.getElementById('basicSalary').value);
+
+        // Constants for calculations
+        const DA_RATE = 0.10; // 10% of Basic Salary
+        const HRA_RATE = 0.15; // 15% of Basic Salary
+        const PF_RATE = 0.12; // 12% of Basic Salary
+        const TAX_RATE = 0.05; // 5% of Gross Pay
+
+        // Calculations
+        const DA = basicSalary * DA_RATE;
+        const HRA = basicSalary * HRA_RATE;
+        const PF = basicSalary * PF_RATE;
+        const grossPay = basicSalary + DA + HRA;
+        const tax = grossPay * TAX_RATE;
+        const deduction = PF + tax;
+        const netPay = grossPay - deduction;
+
+        // Displaying the Salary Slip
+        const slipContent = `
+            <strong>Name:</strong> ${name}<br>
+            <strong>Designation:</strong> ${designation}<br>
+            <strong>Basic Salary:</strong> ₹${basicSalary.toFixed(2)}<br>
+            <strong>DA:</strong> ₹${DA.toFixed(2)}<br>
+            <strong>HRA:</strong> ₹${HRA.toFixed(2)}<br>
+            <strong>PF:</strong> ₹${PF.toFixed(2)}<br>
+            <strong>T AX:</strong> ₹${tax.toFixed(2)}<br>
+            <strong>Gross Pay:</strong> ₹${grossPay.toFixed(2)}<br>
+            <strong>Deduction:</strong> ₹${deduction.toFixed(2)}<br>
+            <strong>Net Pay:</strong> ₹${netPay.toFixed(2)}<br>
+        `;
+
+        document.getElementById('slipContent').innerHTML = slipContent;
+        document.getElementById('salarySlip').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none; 
+            padding: 0;
+        }
+
+        li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #007BFF; 
+        }
+
+        .internal {
+            color: green;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            li {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Different Types of CSS</h1>
+    <hr>
+
+    <ul>
+        <li>
+            <h3>Inline CSS</h3>
+            <p style="font-size: 40px; color: red;">Hello Moto</p>
+        </li>
+        <li>
+            <h3>Embedded CSS</h3>
+            <p class="internal">Hello Moto</p>
+        </li>
+        <li>
+            <h3>External CSS</h3>
+            <p>To use external CSS, you would link to a separate CSS file in the head section of your HTML document like this:</p>
+            <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>
+        </li>
+    </ul>
+</body>
+</html>

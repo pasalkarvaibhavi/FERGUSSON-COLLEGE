@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Arrays and Remove Duplicates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f8ff;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 90%;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #0b094d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0b094d;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333333;
+    }
+  </style>
+  <script>
+    function mergeArrays() {
+    
+      const array1 = document.getElementById("array1Input").value.split(',').map(Number);
+      const array2 = document.getElementById("array2Input").value.split(',').map(Number);
+      
+      
+      const mergedArray = [...new Set([...array1, ...array2])];
+      
+      
+      document.getElementById("result").textContent = `Merged Array without duplicates: [${mergedArray.join(', ')}]`;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Merge Arrays and Remove Duplicates</h1>
+    <p>Enter the first array:</p>
+    <input type="text" id="array1Input" placeholder="Enter first array">
+    <p>Enter the second array:</p>
+    <input type="text" id="array2Input" placeholder="Enter second array">
+    <button onclick="mergeArrays()">Merge and Remove Duplicates</button>
+    <p id="result"></p>
+  </div>
+</body>
+</html>

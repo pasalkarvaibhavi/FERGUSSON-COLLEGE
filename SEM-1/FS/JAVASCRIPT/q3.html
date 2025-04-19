@@ -1,0 +1,87 @@
+<!--Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 95%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            background-color: #012526;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Vowel Counter</h2>
+<div class="container">
+    <textarea id="inputString" placeholder="Enter your text here..."></textarea>
+    <input type="button" value="Count Vowels" onclick="countVowels()">
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function countVowels() {
+        const str = document.getElementById('inputString').value;
+        const vowels = 'aeiouAEIOU'; 
+        let count = 0;
+
+        
+        for (let i = 0; i < str.length; i++) {
+            if (vowels.includes(str[i])) {
+                count++; 
+            }
+        }
+        
+        
+        document.getElementById('result').innerText = `Number of vowels: ${count}`;
+    }
+</script>
+
+</body>
+</html>
